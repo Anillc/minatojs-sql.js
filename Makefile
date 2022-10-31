@@ -15,7 +15,7 @@ EXTENSION_FUNCTIONS = extension-functions.c
 EXTENSION_FUNCTIONS_URL = https://www.sqlite.org/contrib/download/extension-functions.c?get=25
 EXTENSION_FUNCTIONS_SHA1 = c68fa706d6d9ff98608044c00212473f9c14892f
 
-EMCC=emcc
+EMCC=EM_CACHE=$(shell pwd)/.emscriptencache emcc
 
 SQLITE_COMPILATION_FLAGS = \
 	-Oz \
