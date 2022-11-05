@@ -88,7 +88,7 @@ dist/sql-wasm-debug.js: $(BITCODE_FILES) $(OUTPUT_WRAPPER_FILES) $(SOURCE_API_FI
 	rm out/tmp-raw.js
 
 .PHONY: optimized
-optimized: dist/sql-asm.js dist/sql-wasm.js dist/sql-asm-memory-growth.js
+optimized: dist/sql-wasm.js dist/sql-wasm.d.ts
 
 dist/sql-asm.js: $(BITCODE_FILES) $(OUTPUT_WRAPPER_FILES) $(SOURCE_API_FILES) $(EXPORTED_METHODS_JSON_FILES)
 	$(EMCC) $(EMFLAGS) $(EMFLAGS_OPTIMIZED) $(EMFLAGS_ASM) $(BITCODE_FILES) $(EMFLAGS_PRE_JS_FILES) -o $@
@@ -123,6 +123,9 @@ dist/worker.sql-wasm.js: dist/sql-wasm.js src/worker.js
 
 dist/worker.sql-wasm-debug.js: dist/sql-wasm-debug.js src/worker.js
 	cat $^ > $@
+
+dist/sql-wasm.d.ts: src/sql-wasm.d.ts
+	cp src/sql-wasm.d.ts $@
 
 # Building it this way gets us a wrapper that _knows_ it's in worker mode, which is nice.
 # However, since we can't tell emcc that we don't need the wasm generated, and just want the wrapper, we have to pay to have the .wasm generated
