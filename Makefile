@@ -24,6 +24,7 @@ SQLITE_COMPILATION_FLAGS = \
 	-DSQLITE_ENABLE_FTS3 \
 	-DSQLITE_ENABLE_FTS3_PARENTHESIS \
 	-DSQLITE_THREADSAFE=0 \
+	-DSQLITE_ENABLE_DBSTAT_VTAB \
 	-DSQLITE_ENABLE_NORMALIZE
 
 # When compiling to WASM, enabling memory-growth is not expected to make much of an impact, so we enable it for all builds
