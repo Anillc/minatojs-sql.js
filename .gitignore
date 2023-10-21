@@ -2,7 +2,6 @@ node_modules/
 *~
 
 # Intermediary files:
-cache/
 out/
 .emsdk-cache/
 sqlite-src/

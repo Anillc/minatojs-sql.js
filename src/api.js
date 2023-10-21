@@ -819,11 +819,11 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
     * @memberof module:SqlJs
     * Open a new database either by creating a new one or opening an existing
     * one stored in the byte array passed in first argument
-    * @param {number[]} data An array of bytes representing
+    * @param {string, number[]} data An array of bytes representing
     * an SQLite database file
     */
-    function Database(data) {
-        this.filename = "dbfile_" + (0xffffffff * Math.random() >>> 0);
+    function Database(filename, data) {
+        this.filename = filename || "dbfile_" + (0xffffffff * Math.random() >>> 0);
         if (data != null) {
             FS.createDataFile("/", this.filename, data, true, true);
         }
@@ -1111,7 +1111,7 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
         Object.values(this.functions).forEach(removeFunction);
         this.functions = {};
         this.handleError(sqlite3_close_v2(this.db));
-        FS.unlink("/" + this.filename);
+        // FS.unlink("/" + this.filename);
         this.db = null;
     };
 

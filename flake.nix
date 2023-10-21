@@ -13,6 +13,9 @@
         nativeBuildInputs = with pkgs; [
           perlPackages.DigestSHA3 unzip gnumake
         ];
+        shellHook = ''
+          export EM_CACHE=$PWD/.emscriptencache
+        '';
       };
     });
 }
