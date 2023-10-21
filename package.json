@@ -1,6 +1,6 @@
 {
 	"name": "@minatojs/sql.js",
-	"version": "2.0.1",
+	"version": "3.0.0",
 	"description": "SQLite library with support for opening and writing databases, prepared statements, and more. This SQLite library is in pure javascript (compiled with emscripten).",
 	"keywords": [
 		"sql",
