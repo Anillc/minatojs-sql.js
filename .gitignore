@@ -13,3 +13,5 @@ sqljs.zip
 
 .emscriptencache/
 .direnv/
+
+dist/
