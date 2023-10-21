@@ -91,3 +91,4 @@ sqlite-src:
 	unzip -j $(TMP)/sqlite.zip -d $@
 	cp $(TMP)/extension-functions.c $@
 	rm -rf $(TMP)
+	patch $@/sqlite3.c src/sqlite3.patch

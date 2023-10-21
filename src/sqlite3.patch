@@ -1,0 +1,21 @@
+42020d42019
+<   DbPath path;
+42022,42037c42021
+<   path.rc = 0;
+<   path.nUsed = 0;
+<   path.nSymlink = 0;
+<   path.nOut = nOut;
+<   path.zOut = zOut;
+<   if( zPath[0]!='/' ){
+<     char zPwd[SQLITE_MAX_PATHLEN+2];
+<     if( osGetcwd(zPwd, sizeof(zPwd)-2)==0 ){
+<       return unixLogError(SQLITE_CANTOPEN_BKPT, "getcwd", zPath);
+<     }
+<     appendAllPathElements(&path, zPwd);
+<   }
+<   appendAllPathElements(&path, zPath);
+<   zOut[path.nUsed] = 0;
+<   if( path.rc || path.nUsed<2 ) return SQLITE_CANTOPEN_BKPT;
+<   if( path.nSymlink ) return SQLITE_OK_SYMLINK;
+---
+>   strncpy(zOut, zPath, nOut);

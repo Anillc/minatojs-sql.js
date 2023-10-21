@@ -822,8 +822,8 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
     * @param {string, number[]} data An array of bytes representing
     * an SQLite database file
     */
-    function Database(filename, data) {
-        this.filename = filename || "dbfile_" + (0xffffffff * Math.random() >>> 0);
+    function Database(filepath, data) {
+        this.filename = filepath || "dbfile_" + (0xffffffff * Math.random() >>> 0);
         if (data != null) {
             FS.createDataFile("/", this.filename, data, true, true);
         }

@@ -12,8 +12,8 @@
             src = super.fetchFromGitHub {
               owner = "Anillc";
               repo = "emscripten";
-              rev = "9a4512d2620402cd47af63bfc114e6088d5eae7c";
-              sha256 = "sha256-zgqN4JPoPTOpZdXpkE6BsPjYPJx3Nid/VcfMSfNv8A4=";
+              rev = "8409e7aaa617ac7ea5f74d2601cb18247495237e";
+              sha256 = "sha256-8RzbAO708b+/NFOeO9ppeNVKvSC7kjay9BeNT3tpNLY=";
             };
           });
         })];
