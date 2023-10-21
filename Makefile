@@ -29,8 +29,7 @@ EMFLAGS = \
 	-s NODEJS_CATCH_REJECTION=0 \
 	-s WASM=1 \
 	-s LEGACY_RUNTIME=1 \
-	-s NODERAWFS=1 \
-	-lnodefs.js \
+	-s KOISHIFS=1 \
 	--closure-args=--jscomp_off=checkTypes \
 	--closure-args=--jscomp_off=checkVars
 
