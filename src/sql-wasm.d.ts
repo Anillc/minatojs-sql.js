@@ -156,6 +156,9 @@ declare class Database {
      * `;`). This limitation does not apply to params as an object.
      */
     run(sql: string, params?: BindParams): Database;
+
+    flush(): void;
+    size(): number;
 }
 
 declare class Statement {

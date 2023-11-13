@@ -239,6 +239,14 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
         ["number"]
     );
 
+    // https://www.sqlite.org/c3ref/db_cacheflush.html
+    // int sqlite3_db_cacheflush(sqlite3*);
+    var sqlite3_db_cacheflush = cwrap(
+        "sqlite3_db_cacheflush",
+        "number",
+        ["number"],
+    );
+
     /**
     * @classdesc
     * Represents a prepared statement.
@@ -1376,6 +1384,18 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
         ));
         return this;
     };
+
+    Database.prototype["flush"] = function flush() {
+        if (!this.db) {
+            throw new Error("Database closed");
+        }
+        this.handleError(sqlite3_db_cacheflush(this.db))
+    }
+
+    Database.prototype["size"] = function size() {
+        this.flush()
+        return FS.stat(this.filename).size
+    }
 
     // export Database to Module
     Module.Database = Database;
